@@ -1,7 +1,7 @@
 // -- Punto 1 -- 
 
 function convertidorTemp(centigradosTem){
-return fahrenheit = centigradosTem*1.8+32
+return centigradosTem*1.8+32
 }
 
 console.log(convertidorTemp(0))
@@ -58,3 +58,5 @@ function peorParidad(numero) {
         return "Número fuera de rango";
     }
 }
+
+console.log(peorParidad(10))
