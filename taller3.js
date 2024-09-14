@@ -14,13 +14,12 @@ function desglosarString(type, text) {
 //-- punto 2--
 function twoSum(array, number) {
   const view = new Map();
-  let result = [];
-  array.forEach((element, index) => {
+  array.reduce((result, element, index) => {
     let c = number - element;
     if (view.has(c)) {
       result = [view.get(c), index];
     } else view.set(element, index);
-  });
+  },[]);
   return result;
 }
 
@@ -37,20 +36,17 @@ function conversionRomana(string) {
     D: 500,
     M: 1000,
   };
-
-  let total = 0;
   let valorAnterior = 0;
 
-  Array.from(string).reverse().forEach((element, index) => {
+  return Array.from(string).reverse().reduce((total, element) => {
     if (values[element] < valorAnterior) {
       total -= values[element];
     } else {
       total += values[element];
     }
     valorAnterior = values[element];
-  });
-
-  return total;
+    return total;
+  }, 0);
 }
 
 console.log(conversionRomana("MXMVII"));
