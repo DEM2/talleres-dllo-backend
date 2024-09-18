@@ -15,11 +15,13 @@ function desglosarString(type, text) {
 function twoSum(array, number) {
   const view = new Map();
  return array.reduce((result, element, index) => {
-    let c = number - element;
-    if (view.has(c)) {
-      result = [view.get(c), index];
-    } else view.set(element, index);
-     return result;
+    if (result.length > 0) return result; 
+    let complement = number - element;
+    if (view.has(complement)) {
+      return [view.get(complement), index]; 
+    }
+    view.set(element, index); 
+    return result;
   },[]);
 }
 
